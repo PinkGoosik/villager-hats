@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "villagershats",
+  "version": "${version}",
+
+  "name": "Goosik's Villager Hats",
+  "description": "A simple mod that allows you to wear villagers' hats as trinkets.",
+  "authors": [
+    "PinkGoosik"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/goosiks-villager-hats",
+    "sources": "https://github.com/PinkGoosik/goosiks-villager-hats"
+  },
+
+  "license": "MIT",
+  "icon": "assets/villagershats/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "ru.pinkgoosik.villagerhats.VillagerHatsMod"
+    ],
+    "client": [
+      "ru.pinkgoosik.villagerhats.VillagerHatsMod"
+    ]
+  },
+  "mixins": [
+    "villagershats.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+	"trinkets": ">=3.0.0",
+    "minecraft": "1.17.x",
+    "java": ">=16"
+  }
+}

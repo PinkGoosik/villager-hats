@@ -1,0 +1,34 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "villagershats:item/hat",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "entity/villager/profession/armorer"
+	},
+	"elements": [
+		{
+			"from": [4, -1, 4],
+			"to": [12, 4, 12],
+			"faces": {
+				"north": {"uv": [10, 2, 12, 3.25], "texture": "#0"},
+				"east": {"uv": [8, 2, 10, 3.25], "texture": "#0"},
+				"south": {"uv": [14, 2, 16, 3.25], "texture": "#0"},
+				"west": {"uv": [12, 2, 14, 3.25], "texture": "#0"},
+				"up": {"uv": [6, 5.5, 8, 7.5], "texture": "#0"},
+				"down": {"uv": [12, 0, 14, 2], "texture": "#0"}
+			}
+		},
+		{
+			"from": [4, 4, 4],
+			"to": [12, 4, 5],
+			"faces": {
+				"north": {"uv": [0, 0, 2, 0], "texture": "#0"},
+				"east": {"uv": [0, 0, 0.25, 0], "texture": "#0"},
+				"south": {"uv": [0, 0, 2, 0], "texture": "#0"},
+				"west": {"uv": [0, 0, 0.25, 0], "texture": "#0"},
+				"up": {"uv": [10, 1.75, 12, 2], "texture": "#0"},
+				"down": {"uv": [0, 0, 2, 0.25], "texture": "#0"}
+			}
+		}
+	]
+}

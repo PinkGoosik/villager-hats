@@ -1,0 +1,11 @@
+{
+  "itemGroup.villagershats.items": "Goosik's Villager Hats",
+
+  "item.villagershats.farmer_hat": "Farmer Hat",
+  "item.villagershats.fletcher_hat": "Fletcher Hat",
+  "item.villagershats.fisherman_hat": "Fisherman Hat",
+  "item.villagershats.armorer_hat": "Armorer Hat",
+  "item.villagershats.shepherd_hat": "Shepherd Hat",
+  "item.villagershats.librarian_hat": "Librarian Hat",
+  "item.villagershats.butcher_hat": "Butcher Hat"
+}
