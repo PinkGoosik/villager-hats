@@ -18,10 +18,10 @@ public class VillagerHatsMod implements ModInitializer, ClientModInitializer {
 
     private static final Map<Identifier, Item> ITEMS = new LinkedHashMap<>();
 
-    public static final Item FARMER_HAT = register(new HatItem("farmer_hat", 1.15F, 0.25D));
+    public static final Item FARMER_HAT = register(new HatItem("farmer_hat", 1.15F, 0.2D));
     public static final Item FLETCHER_HAT = register(new HatItem("fletcher_hat", 1.15F, 0.2D));
-    public static final Item FISHERMAN_HAT = register(new HatItem("fisherman_hat", 1.15F, 0.25D));
-    public static final Item ARMORER_HAT = register(new HatItem("armorer_hat", 1.15F, 0.2D));
+    public static final Item FISHERMAN_HAT = register(new HatItem("fisherman_hat", 1.15F, 0.2D));
+    public static final Item ARMORER_HAT = register(new HatItem("armorer_hat", 1.15F, 0.17D));
     public static final Item SHEPHERD_HAT = register(new HatItem("shepherd_hat", 1.05F, 0.2D));
     public static final Item LIBRARIAN_HAT = register(new HatItem("librarian_hat", 1.15F, 0.25D));
     public static final Item BUTCHER_HAT = register(new HatItem("butcher_hat", 1.15F, 0.2D));

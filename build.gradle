@@ -31,6 +31,7 @@ dependencies {
 	
 	modRuntime "supercoder79:databreaker:0.2.7"
 	modRuntime "maven.modrinth:modmenu:2.0.2"
+	modRuntime "com.ptsmods:devlogin:1.2"
 }
 
 processResources {
