@@ -4,6 +4,7 @@
   "package": "ru.pinkgoosik.villagerhats.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
+    "LivingEntityMixin"
   ],
   "client": [
     "ArmorFeatureRendererMixin"

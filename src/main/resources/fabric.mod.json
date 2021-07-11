@@ -10,7 +10,7 @@
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/goosiks-villager-hats",
-    "sources": "https://github.com/PinkGoosik/goosiks-villager-hats"
+    "issues": "https://github.com/PinkGoosik/goosiks-villager-hats/issues"
   },
 
   "license": "MIT",
@@ -28,7 +28,13 @@
   "mixins": [
     "villagershats.mixins.json"
   ],
-
+  "custom": {
+    "modmenu": {
+      "links": {
+        "misc.villagershats.discord_server": "https://discord.gg/DcemWeskeZ"
+      }
+    }
+  },
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",

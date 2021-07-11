@@ -1,5 +1,9 @@
 {
+  "modmenu.descriptionTranslation.villagershats": "A simple mod that allows you to wear villagers' hats as trinkets.",
+
   "itemGroup.villagershats.items": "Goosik's Villager Hats",
+
+  "misc.villagershats.discord_server": "§9§n<Discord Server>",
 
   "item.villagershats.farmer_hat": "Farmer Hat",
   "item.villagershats.fletcher_hat": "Fletcher Hat",

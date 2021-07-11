@@ -42,7 +42,7 @@ public abstract class ArmorFeatureRendererMixin<T extends LivingEntity, M extend
         }
 
         for(ItemStack itemStack : stacks){
-            if(itemStack.getItem() instanceof HatItem)return true;
+            if(itemStack.getItem() instanceof HatItem) return true;
         }
         return false;
     }
