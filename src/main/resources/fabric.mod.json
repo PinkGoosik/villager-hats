@@ -1,20 +1,21 @@
 {
   "schemaVersion": 1,
-  "id": "villagershats",
+  "id": "villager-hats",
   "version": "${version}",
 
-  "name": "Goosik's Villager Hats",
-  "description": "A simple mod that allows you to wear villagers' hats as trinkets.",
+  "name": "Villager Hats Mod",
+  "description": "A simple Mod that allows you to wear Villagers' Hats as Trinkets.",
   "authors": [
     "PinkGoosik"
   ],
   "contact": {
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/goosiks-villager-hats",
-    "issues": "https://github.com/PinkGoosik/goosiks-villager-hats/issues"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/villager-hats-mod",
+    "sources": "https://github.com/PinkGoosik/villager-hats-mod",
+    "issues": "https://github.com/PinkGoosik/villager-hats-mod/issues"
   },
 
   "license": "MIT",
-  "icon": "assets/villagershats/icon.png",
+  "icon": "assets/villager-hats/icon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -26,12 +27,12 @@
     ]
   },
   "mixins": [
-    "villagershats.mixins.json"
+    "villager-hats.mixins.json"
   ],
   "custom": {
     "modmenu": {
       "links": {
-        "misc.villagershats.discord_server": "https://discord.gg/DcemWeskeZ"
+        "misc.villager-hats.discord_server": "https://discord.gg/DcemWeskeZ"
       }
     }
   },
@@ -39,7 +40,7 @@
     "fabricloader": ">=0.11.3",
     "fabric": "*",
 	"trinkets": ">=3.0.0",
-    "minecraft": "1.17.x",
+    "minecraft": ">=1.17",
     "java": ">=16"
   }
 }

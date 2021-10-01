@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.8-SNAPSHOT'
+	id 'fabric-loom' version '0.10.25'
 	id 'maven-publish'
 }
 
@@ -14,7 +14,7 @@ repositories {
 
 	maven { url "https://maven.gegy.dev" } //databreaker
 	maven { url "https://ladysnake.jfrog.io/artifactory/mods" } //CCA
-	//maven { url "https://maven.terraformersmc.com" } //trinkets
+	maven { url "https://maven.terraformersmc.com" } //trinkets
 	maven { url "https://api.modrinth.com/maven" }
 }
 
@@ -24,14 +24,11 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modImplementation "maven.modrinth:trinkets:3.0.0"
+	modImplementation "dev.emi:trinkets:${trinkets_version}"
 	
-	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:3.0.0"
-	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:3.0.0"
-	
-	modRuntime "supercoder79:databreaker:0.2.7"
-	modRuntime "maven.modrinth:modmenu:2.0.2"
-	modRuntime "com.ptsmods:devlogin:1.2"
+//	modRuntime "supercoder79:databreaker:0.2.7"
+//	modRuntime "maven.modrinth:modmenu:2.0.2"
+//	modRuntime "com.ptsmods:devlogin:1.2"
 }
 
 processResources {

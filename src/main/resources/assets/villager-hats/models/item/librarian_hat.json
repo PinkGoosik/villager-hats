@@ -1,6 +1,5 @@
 {
-	"credit": "Made with Blockbench",
-	"parent": "villagershats:item/hat",
+	"parent": "villager-hats:item/hat",
 	"texture_size": [64, 64],
 	"textures": {
 		"0": "entity/villager/profession/librarian"

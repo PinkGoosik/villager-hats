@@ -23,13 +23,9 @@ public class LivingEntityMixin {
         if(self.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT) && self.getType().equals(EntityType.ZOMBIE_VILLAGER) && self instanceof VillagerDataContainer villagerDataContainer){
             VillagerProfession prof = villagerDataContainer.getVillagerData().getProfession();
 
-            if(prof.equals(VillagerProfession.FARMER)) self.dropStack(VillagerHatsMod.FARMER_HAT.getDefaultStack());
-            else if(prof.equals(VillagerProfession.FLETCHER)) self.dropStack(VillagerHatsMod.FLETCHER_HAT.getDefaultStack());
-            else if(prof.equals(VillagerProfession.FISHERMAN)) self.dropStack(VillagerHatsMod.FISHERMAN_HAT.getDefaultStack());
-            else if(prof.equals(VillagerProfession.ARMORER)) self.dropStack(VillagerHatsMod.ARMORER_HAT.getDefaultStack());
-            else if(prof.equals(VillagerProfession.SHEPHERD)) self.dropStack(VillagerHatsMod.SHEPHERD_HAT.getDefaultStack());
-            else if(prof.equals(VillagerProfession.LIBRARIAN)) self.dropStack(VillagerHatsMod.LIBRARIAN_HAT.getDefaultStack());
-            else if(prof.equals(VillagerProfession.BUTCHER)) self.dropStack(VillagerHatsMod.BUTCHER_HAT.getDefaultStack());
+            VillagerHatsMod.getHats().forEach((id, item) -> {
+                if(item.getProfession().equals(prof)) self.dropStack(item.getDefaultStack());
+            });
         }
     }
 }

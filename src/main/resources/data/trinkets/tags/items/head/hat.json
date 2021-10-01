@@ -1,12 +1,12 @@
 {
   "replace": false,
   "values": [
-    "villagershats:farmer_hat",
-    "villagershats:fletcher_hat",
-    "villagershats:fisherman_hat",
-    "villagershats:armorer_hat",
-    "villagershats:shepherd_hat",
-    "villagershats:librarian_hat",
-    "villagershats:butcher_hat"
+    "villager-hats:farmer_hat",
+    "villager-hats:fletcher_hat",
+    "villager-hats:fisherman_hat",
+    "villager-hats:armorer_hat",
+    "villager-hats:shepherd_hat",
+    "villager-hats:librarian_hat",
+    "villager-hats:butcher_hat"
   ]
 }
