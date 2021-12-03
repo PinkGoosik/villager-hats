@@ -1,0 +1,11 @@
+{
+  "itemGroup.villagerhats": "Villager Hats",
+
+  "item.villagerhats.farmer_hat": "Farmer Hat",
+  "item.villagerhats.fletcher_hat": "Fletcher Hat",
+  "item.villagerhats.fisherman_hat": "Fisherman Hat",
+  "item.villagerhats.armorer_hat": "Armorer Hat",
+  "item.villagerhats.shepherd_hat": "Shepherd Hat",
+  "item.villagerhats.librarian_hat": "Librarian Hat",
+  "item.villagerhats.butcher_hat": "Butcher Hat"
+}

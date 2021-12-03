@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "villagerhats:armorer_hat",
+    "villagerhats:butcher_hat",
+    "villagerhats:farmer_hat",
+    "villagerhats:fisherman_hat",
+    "villagerhats:fletcher_hat",
+    "villagerhats:librarian_hat",
+    "villagerhats:shepherd_hat"
+  ]
+}

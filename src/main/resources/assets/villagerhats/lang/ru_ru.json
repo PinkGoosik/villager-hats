@@ -1,0 +1,11 @@
+{
+  "itemGroup.villagerhats": "Villager Hats",
+
+  "item.villagerhats.farmer_hat": "Шляпа фермера",
+  "item.villagerhats.fletcher_hat": "Шляпа флетчера",
+  "item.villagerhats.fisherman_hat": "Шляпа рыбака",
+  "item.villagerhats.armorer_hat": "Шляпа оружейника",
+  "item.villagerhats.shepherd_hat": "Шляпа пастуха",
+  "item.villagerhats.librarian_hat": "Шляпа библиотекаря",
+  "item.villagerhats.butcher_hat": "Шляпа мясника"
+}

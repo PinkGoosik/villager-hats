@@ -1,60 +1,83 @@
 package ru.pinkgoosik.villagerhats;
 
-import dev.emi.trinkets.api.client.TrinketRendererRegistry;
-import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.village.VillagerProfession;
+import static net.minecraft.world.entity.npc.VillagerProfession.*;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
+import top.theillusivec4.curios.api.CuriosApi;
+import top.theillusivec4.curios.api.SlotTypeMessage;
+import top.theillusivec4.curios.api.SlotTypePreset;
+import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
+import top.theillusivec4.curios.api.client.ICurioRenderer;
 
 @SuppressWarnings("unused")
-public class VillagerHatsMod implements ModInitializer, ClientModInitializer {
+@Mod("villagerhats")
+public class VillagerHatsMod {
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "villagerhats");
 
-    private static final Map<Identifier, HatItem> ITEMS = new LinkedHashMap<>();
-
-    public static final Item FARMER_HAT = add(VillagerProfession.FARMER);
-    public static final Item FLETCHER_HAT = add(VillagerProfession.FLETCHER);
-    public static final Item FISHERMAN_HAT = add(VillagerProfession.FISHERMAN);
-    public static final Item ARMORER_HAT = add(VillagerProfession.ARMORER, 1.15F, 0.17D);
-    public static final Item SHEPHERD_HAT = add(VillagerProfession.SHEPHERD, 1.05F, 0.2D);
-    public static final Item LIBRARIAN_HAT = add(VillagerProfession.LIBRARIAN);
-    public static final Item BUTCHER_HAT = add(VillagerProfession.BUTCHER);
-
-    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(new Identifier("villager-hats", "items"))
-            .appendItems(itemStacks -> ITEMS.forEach((identifier, item) -> itemStacks.add(item.getDefaultStack())))
-            .icon(FARMER_HAT::getDefaultStack).build();
-
-    @Override
-    public void onInitialize() {
-        for (Identifier id : ITEMS.keySet()) {
-            Registry.register(Registry.ITEM, id, ITEMS.get(id));
+    public static final CreativeModeTab TAB = new CreativeModeTab("villagerhats") {
+        @NotNull
+        @Override
+        public ItemStack makeIcon() {
+            return FARMER_HAT.getDefaultInstance();
         }
+    };
+
+    public static final Item FARMER_HAT = add(FARMER);
+    public static final Item FLETCHER_HAT = add(FLETCHER);
+    public static final Item FISHERMAN_HAT = add(FISHERMAN);
+    public static final Item ARMORER_HAT = add(ARMORER, 1.15F, 0.17D);
+    public static final Item SHEPHERD_HAT = add(SHEPHERD, 1.05F, 0.2D);
+    public static final Item LIBRARIAN_HAT = add(LIBRARIAN);
+    public static final Item BUTCHER_HAT = add(BUTCHER);
+
+    public VillagerHatsMod() {
+        IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        eventBus.addListener(this::onInitialize);
+        eventBus.addListener(this::onClientInitialize);
+        eventBus.addListener(this::enqueueIMC);
+        ITEMS.register(eventBus);
+        MinecraftForge.EVENT_BUS.register(this);
     }
 
-    @Override
-    public void onInitializeClient() {
-        ITEMS.forEach((id, item) -> TrinketRendererRegistry.registerRenderer(item, item));
+    public void onInitialize(final FMLCommonSetupEvent event) {
     }
 
-    public static Map<Identifier, HatItem> getHats() {
-        return ITEMS;
+    public void enqueueIMC(final InterModEnqueueEvent event) {
+        InterModComms.sendTo(CuriosApi.MODID, SlotTypeMessage.REGISTER_TYPE, () -> SlotTypePreset.HEAD.getMessageBuilder().build());
+    }
+
+    public void onClientInitialize(final FMLClientSetupEvent event) {
+        ITEMS.getEntries().forEach(itemRegistryObject -> {
+            Item item = itemRegistryObject.get();
+            if(item instanceof ICurioRenderer renderer) {
+                CuriosRendererRegistry.register(item, () -> renderer);
+            }
+        });
     }
 
     private static HatItem add(VillagerProfession profession) {
         HatItem item = new HatItem(profession);
-        ITEMS.put(new Identifier("villager-hats", item.getHatName()), item);
+        ITEMS.register(item.getHatName(), () -> item);
         return item;
     }
 
     private static HatItem add(VillagerProfession profession, float size, double height) {
         HatItem item = new HatItem(profession, size, height);
-        ITEMS.put(new Identifier("villager-hats", item.getHatName()), item);
+        ITEMS.register(item.getHatName(), () -> item);
         return item;
     }
 }

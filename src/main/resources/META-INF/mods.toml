@@ -1,0 +1,35 @@
+modLoader="javafml"
+loaderVersion="[38,)"
+license="MIT"
+issueTrackerURL="https://github.com/PinkGoosik/villager-hats-mod/issues"
+
+[[mods]]
+modId="villagerhats"
+version="${file.jarVersion}"
+displayName="Villager Hats Mod"
+displayURL="https://github.com/PinkGoosik/villager-hats-mod"
+logoFile="icon.png"
+authors="PinkGoosik"
+description='''
+A simple Mod that allows you to wear Villagers' Hats as Trinkets.
+'''
+
+[[dependencies.villagerhats]]
+    modId="forge"
+    mandatory=true
+    versionRange="[37,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.villagerhats]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.villagerhats]]
+    modId="curios"
+    mandatory=true
+    versionRange="[1.18-5.0.2.3,)"
+    side="BOTH"

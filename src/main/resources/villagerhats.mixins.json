@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "ru.pinkgoosik.villagerhats.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "refmap": "villagerhats.mixins.refmap.json",
+  "mixins": [
+    "LivingEntityMixin"
+  ],
+  "client": [
+    "HumanoidArmorLayerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
