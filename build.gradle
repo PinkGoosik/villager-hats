@@ -14,12 +14,12 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.2.2'
+version = '1.2.4'
 group = 'ru.pinkgoosik'
 archivesBaseName = 'villager-hats-mod'
 
 mixin {
-    add sourceSets.main, 'villagerhats.mixins.refmap.json'
+    add sourceSets.main, 'villagerhats.refmap.json'
     config 'villagerhats.mixins.json'
 }
 
@@ -35,6 +35,7 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
+            arg "-mixin.config=villagerhats.mixins.json"
 
             // Recommended logging data for a userdev environment
             // The markers can be added/remove as needed separated by commas.
@@ -49,7 +50,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                examplemod {
+                villagerhats {
                     source sourceSets.main
                 }
             }
@@ -57,6 +58,7 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
+            arg "-mixin.config=villagerhats.mixins.json"
 
             // Recommended logging data for a userdev environment
             // The markers can be added/remove as needed separated by commas.
@@ -71,7 +73,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                examplemod {
+                villagerhats {
                     source sourceSets.main
                 }
             }
@@ -121,6 +123,8 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.18-38.0.12'
 
+    annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
+
 	runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.18-5.0.2.3")
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.18-5.0.2.3:api")
 }
@@ -129,6 +133,7 @@ dependencies {
 jar {
     manifest {
         attributes([
+                "MixinConfigs": "villagerhats.mixins.json",
                 "Specification-Title"     : "villager-hats-mod",
                 "Specification-Vendor"    : "pinkgoosik",
                 "Specification-Version"   : "1", // We are version 1 of ourselves
