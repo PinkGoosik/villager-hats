@@ -14,16 +14,14 @@ import ru.pinkgoosik.villagerhats.VillagerHatsMod;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
-
     LivingEntity self = (LivingEntity)(Object)this;
 
     @Inject(method = "drop", at = @At("TAIL"))
-    void drop(DamageSource source, CallbackInfo ci){
-
-        if(self.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT) && self.getType().equals(EntityType.ZOMBIE_VILLAGER) && self instanceof VillagerDataContainer villagerDataContainer){
+    void drop(DamageSource source, CallbackInfo ci) {
+        if(self.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT) && self.getType().equals(EntityType.ZOMBIE_VILLAGER) && self instanceof VillagerDataContainer villagerDataContainer) {
             VillagerProfession prof = villagerDataContainer.getVillagerData().getProfession();
 
-            VillagerHatsMod.getHats().forEach((id, item) -> {
+            VillagerHatsMod.ITEMS.forEach((id, item) -> {
                 if(item.getProfession().equals(prof)) self.dropStack(item.getDefaultStack());
             });
         }

@@ -9,7 +9,7 @@
     "PinkGoosik"
   ],
   "contact": {
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/villager-hats-mod",
+    "homepage": "https://curseforge.com/minecraft/mc-mods/villager-hats-mod",
     "sources": "https://github.com/PinkGoosik/villager-hats-mod",
     "issues": "https://github.com/PinkGoosik/villager-hats-mod/issues"
   },
@@ -29,18 +29,11 @@
   "mixins": [
     "villager-hats.mixins.json"
   ],
-  "custom": {
-    "modmenu": {
-      "links": {
-        "misc.villager-hats.discord_server": "https://discord.gg/DcemWeskeZ"
-      }
-    }
-  },
   "depends": {
-    "fabricloader": ">=0.11.3",
+    "fabricloader": ">=0.12.12",
     "fabric": "*",
-	"trinkets": ">=3.0.0",
-    "minecraft": ">=1.17",
-    "java": ">=16"
+	"trinkets": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17"
   }
 }
