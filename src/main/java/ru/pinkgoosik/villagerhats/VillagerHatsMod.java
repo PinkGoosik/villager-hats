@@ -8,9 +8,9 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.village.VillagerProfession;
+import ru.pinkgoosik.villagerhats.compat.TrinketsCompat;
 import ru.pinkgoosik.villagerhats.item.VillagerHat;
 import ru.pinkgoosik.villagerhats.item.VillagerHatItem;
-import ru.pinkgoosik.villagerhats.item.VillagerHatTrinket;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -45,11 +45,9 @@ public class VillagerHatsMod implements ModInitializer {
         Item item;
 
         if(FabricLoader.getInstance().isModLoaded("trinkets")) {
-            item = new VillagerHatTrinket(profession);
+            item = TrinketsCompat.createTrinket(profession);
         }
-        else {
-            item = new VillagerHatItem(profession);
-        }
+        else item = new VillagerHatItem(profession);
 
         ITEMS.put(new Identifier("villager-hats", ((VillagerHat)item).getHatName()), item);
         return item;
@@ -59,11 +57,9 @@ public class VillagerHatsMod implements ModInitializer {
         Item item;
 
         if(FabricLoader.getInstance().isModLoaded("trinkets")) {
-            item = new VillagerHatTrinket(profession, size, height);
+            item = TrinketsCompat.createTrinket(profession, size, height);
         }
-        else {
-            item = new VillagerHatItem(profession, size, height);
-        }
+        else item = new VillagerHatItem(profession, size, height);
 
         ITEMS.put(new Identifier("villager-hats", ((VillagerHat)item).getHatName()), item);
         return item;

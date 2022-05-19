@@ -5,8 +5,10 @@ import dev.emi.trinkets.api.TrinketComponent;
 import dev.emi.trinkets.api.TrinketsApi;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Pair;
+import net.minecraft.village.VillagerProfession;
 import ru.pinkgoosik.villagerhats.VillagerHatsMod;
 import ru.pinkgoosik.villagerhats.item.VillagerHatTrinket;
 import ru.pinkgoosik.villagerhats.client.render.VillagerHatTrinketRenderer;
@@ -27,6 +29,14 @@ public class TrinketsCompat {
             }
         }
         return false;
+    }
+
+    public static Item createTrinket(VillagerProfession profession) {
+        return new VillagerHatTrinket(profession);
+    }
+
+    public static Item createTrinket(VillagerProfession profession, float size, double height) {
+        return new VillagerHatTrinket(profession, size, height);
     }
 
 }
