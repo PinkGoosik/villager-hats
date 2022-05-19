@@ -1,20 +1,22 @@
 plugins {
-	id 'fabric-loom' version '0.11-SNAPSHOT'
-	id 'maven-publish'
+	id "fabric-loom" version "0.12-SNAPSHOT"
+	id "io.github.juuxel.loom-quiltflower" version "1.7.2"
+	id "io.github.p03w.machete" version "1.0.11"
 }
-
-sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
 
 archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
 repositories {
+	maven {
+        url "https://api.modrinth.com/maven"
+        content { includeGroup "maven.modrinth" }
+    }
 	maven { url "https://maven.shedaniel.me" } //rei
-	maven { url "https://api.modrinth.com/maven" } //lazyDFU
-	maven { url "https://maven.terraformersmc.com" } //modmenu
 	maven { url "https://ladysnake.jfrog.io/artifactory/mods" } //CCA
 	maven { url "https://maven.terraformersmc.com" } //trinkets
+	maven { url "https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1" } //dev-auth
 
 }
 
@@ -27,8 +29,11 @@ dependencies {
 	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
 
 	modLocalRuntime "me.shedaniel:RoughlyEnoughItems-fabric:8.0.442"
-	modLocalRuntime "com.terraformersmc:modmenu:3.1.0"
 	modLocalRuntime "maven.modrinth:lazydfu:0.1.2"
+	modLocalRuntime "maven.modrinth:ferrite-core:4.2.0"
+	modLocalRuntime "maven.modrinth:starlight:1.0.2+1.18.2"
+	modLocalRuntime "maven.modrinth:modmenu:3.2.2"
+	modLocalRuntime "me.djtheredstoner:DevAuth-fabric:1.0.0"
 }
 
 processResources {
@@ -39,25 +44,19 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
+	it.options.encoding = "UTF-8"
 	it.options.release = 17
 }
 
 java {
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+
 	withSourcesJar()
 }
 
 jar {
 	from("LICENSE") {
 		rename { "${it}_${project.archivesBaseName}"}
-	}
-}
-
-publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			from components.java
-		}
-	}
-	repositories {
 	}
 }
