@@ -3,15 +3,15 @@
   "id": "villager-hats",
   "version": "${version}",
 
-  "name": "Villager Hats Mod",
+  "name": "Villager Hats",
   "description": "A simple Mod that allows you to wear Villagers' Hats as Trinkets.",
   "authors": [
     "PinkGoosik"
   ],
   "contact": {
-    "homepage": "https://curseforge.com/minecraft/mc-mods/villager-hats-mod",
-    "sources": "https://github.com/PinkGoosik/villager-hats-mod",
-    "issues": "https://github.com/PinkGoosik/villager-hats-mod/issues"
+    "homepage": "https://modrinth.com/mod/villager-hats",
+    "sources": "https://github.com/PinkGoosik/villager-hats",
+    "issues": "https://github.com/PinkGoosik/villager-hats/issues"
   },
 
   "license": "MIT",
@@ -19,21 +19,17 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "ru.pinkgoosik.villagerhats.VillagerHatsMod"
-    ],
-    "client": [
-      "ru.pinkgoosik.villagerhats.VillagerHatsMod"
-    ]
+    "main": [ "ru.pinkgoosik.villagerhats.VillagerHatsMod" ],
+    "client": [ "ru.pinkgoosik.villagerhats.VillagerHatsMod" ]
   },
   "mixins": [
     "villager-hats.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.12.12",
+    "fabricloader": "*",
     "fabric": "*",
 	"trinkets": "*",
-    "minecraft": "1.18.x",
+    "minecraft": ">=1.18",
     "java": ">=17"
   }
 }
