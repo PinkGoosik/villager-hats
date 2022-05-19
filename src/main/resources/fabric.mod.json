@@ -20,15 +20,14 @@
   "environment": "*",
   "entrypoints": {
     "main": [ "ru.pinkgoosik.villagerhats.VillagerHatsMod" ],
-    "client": [ "ru.pinkgoosik.villagerhats.VillagerHatsMod" ]
+    "client": [ "ru.pinkgoosik.villagerhats.client.VillagerHatsClient" ]
   },
-  "mixins": [
-    "villager-hats.mixins.json"
-  ],
+
+  "mixins": ["villager-hats.mixins.json"],
+
   "depends": {
     "fabricloader": "*",
     "fabric": "*",
-	"trinkets": "*",
     "minecraft": ">=1.18",
     "java": ">=17"
   }

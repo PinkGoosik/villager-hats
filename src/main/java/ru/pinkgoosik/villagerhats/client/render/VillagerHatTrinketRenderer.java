@@ -1,4 +1,4 @@
-package ru.pinkgoosik.villagerhats.render;
+package ru.pinkgoosik.villagerhats.client.render;
 
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.client.TrinketRenderer;
@@ -16,15 +16,15 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3f;
-import ru.pinkgoosik.villagerhats.item.VillagerHatItem;
+import ru.pinkgoosik.villagerhats.item.VillagerHat;
 
 @Environment(EnvType.CLIENT)
-public class VillagerHatRenderer implements TrinketRenderer {
+public class VillagerHatTrinketRenderer implements TrinketRenderer {
 
     @Override
     public void render(ItemStack stack, SlotReference slotReference, EntityModel<? extends LivingEntity> contextModel, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, LivingEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
         if(contextModel instanceof BipedEntityModel<? extends LivingEntity> biped) {
-            if(stack.getItem() instanceof VillagerHatItem hat) {
+            if(stack.getItem() instanceof VillagerHat hat) {
                 ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
                 double height = hat.getHeight();
                 float size = hat.getSize();
@@ -43,4 +43,5 @@ public class VillagerHatRenderer implements TrinketRenderer {
             }
         }
     }
+
 }
