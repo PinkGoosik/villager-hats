@@ -40,7 +40,7 @@ public class VillagerHatTrinket extends TrinketItem implements VillagerHat {
 
     @Override
     public String getHatName() {
-        return profession.getId() + "_hat";
+        return profession.id() + "_hat";
     }
 
     @Override

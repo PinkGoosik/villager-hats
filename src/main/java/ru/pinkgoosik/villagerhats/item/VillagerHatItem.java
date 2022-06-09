@@ -55,7 +55,7 @@ public class VillagerHatItem extends Item implements VillagerHat, Wearable {
 
     @Override
     public String getHatName() {
-        return profession.getId() + "_hat";
+        return profession.id() + "_hat";
     }
 
     @Override

@@ -1,7 +1,7 @@
 plugins {
 	id "fabric-loom" version "0.12-SNAPSHOT"
 	id "io.github.juuxel.loom-quiltflower" version "1.7.2"
-	id "io.github.p03w.machete" version "1.0.11"
+	id "io.github.p03w.machete" version "1.1.2"
 }
 
 archivesBaseName = project.archives_base_name
@@ -17,7 +17,6 @@ repositories {
 	maven { url "https://ladysnake.jfrog.io/artifactory/mods" } //CCA
 	maven { url "https://maven.terraformersmc.com" } //trinkets
 	maven { url "https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1" } //dev-auth
-
 }
 
 dependencies {
@@ -28,11 +27,12 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
 
-	modLocalRuntime "me.shedaniel:RoughlyEnoughItems-fabric:8.0.442"
+//	modLocalRuntime "me.shedaniel:RoughlyEnoughItems-fabric:8.0.442"
+//	modLocalRuntime "me.shedaniel:RoughlyEnoughItems-fabric:9.0.466"
 	modLocalRuntime "maven.modrinth:lazydfu:0.1.2"
-	modLocalRuntime "maven.modrinth:ferrite-core:4.2.0"
-	modLocalRuntime "maven.modrinth:starlight:1.0.2+1.18.2"
-	modLocalRuntime "maven.modrinth:modmenu:3.2.2"
+//	modLocalRuntime "maven.modrinth:ferrite-core:4.2.0"
+	modLocalRuntime "maven.modrinth:starlight:1.1.0+1.19"
+	modLocalRuntime "maven.modrinth:modmenu:4.0.0"
 	modLocalRuntime "me.djtheredstoner:DevAuth-fabric:1.0.0"
 }
 
