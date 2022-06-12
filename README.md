@@ -1,14 +1,13 @@
-<div align="center">
-<img alt="Icon" src="src\main\resources\assets\villager-hats\icon.png" width="128">
-
-[Discord](https://discord.gg/DcemWeskeZ) | [Modrinth](https://modrinth.com/mod/villager-hats) | [CurseForge](https://curseforge.com/minecraft/mc-mods/villager-hats-mod)
 # Villager Hats
-</div>
 
-## About
+<img align="right" width="160" src="src/main/resources/assets/villager-hats/icon.png">
 
-A Simple Mod that allows you to craft and wear Villagers' Hats as Trinkets. Also, you can get them by killing zombie villagers.
+[![CurseForge Downloads](https://cf.way2muchnoise.eu/full_501456_downloads.svg)](https://curseforge.com/minecraft/mc-mods/villager-hats-mod)
+[![Minecraft Versions](https://cf.way2muchnoise.eu/versions/501456.svg)](https://curseforge.com/minecraft/mc-mods/villager-hats-mod)
+
+Villager Hats is a Minecraft mod for fabric loader. This is a simple mod that allows you to craft and wear villagers hats. Install the [Trinkets](https://modrinth.com/mod/trinkets) mod to get a  possibility to equip the hats in hat slot instead of helmet slot. Also instead of crafting you can get them by killing zombie villagers, why not just villagers? Because it would be annoying. Then why don't you add the config you dum modder? Tomorrow or maybe later.
+
+#### [Discord Server](https://discord.gg/DcemWeskeZ) | [Modrinth Page](https://modrinth.com/mod/villager-hats) | [CurseForge Page](https://curseforge.com/minecraft/mc-mods/villager-hats-mod)
 
 ## Showcase
-
-<img src="https://media.forgecdn.net/attachments/383/396/hats.png" width="400">
+<img align="center" width="400" src="https://cdn.modrinth.com/data/vghf63Ct/images/1f46d7caed1bd8a4026dbc95fd207e4a30cf2a7a.png">
