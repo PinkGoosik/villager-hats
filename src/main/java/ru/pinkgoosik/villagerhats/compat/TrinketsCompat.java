@@ -15,6 +15,10 @@ import ru.pinkgoosik.villagerhats.client.render.VillagerHatTrinketRenderer;
 
 import java.util.Optional;
 
+/**
+ * Whatever method from this class should only
+ * be called after FabricLoader.getInstance().isModLoaded("trinkets")
+ */
 public class TrinketsCompat {
 
     public static void onInitializeClient() {

@@ -13,7 +13,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.Vec3f;
+import net.minecraft.util.math.RotationAxis;
 import ru.pinkgoosik.villagerhats.item.VillagerHat;
 
 public class VillagerHatRenderer<T extends PlayerEntity, M extends PlayerEntityModel<T>> extends FeatureRenderer<T, M> {
@@ -37,11 +37,11 @@ public class VillagerHatRenderer<T extends PlayerEntity, M extends PlayerEntityM
             matrices.translate(0D, -1D, 0D);
             matrices.translate(0D, -(height), 0D);
             matrices.scale(size, size, size);
-            matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion(180.0F));
-            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(180.0F));
+            matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(180.0F));
+            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180.0F));
 
-            String modelId = "villager-hats:" + hat.getHatName() + "#inventory";
-            itemRenderer.renderItem(stack, ModelTransformation.Mode.NONE, false, matrices, vertexConsumers, light, OverlayTexture.DEFAULT_UV, itemRenderer.getModels().getModelManager().getModel(new ModelIdentifier(modelId)));
+            var model = new ModelIdentifier("villager-hats", hat.getHatName(), "inventory");
+            itemRenderer.renderItem(stack, ModelTransformation.Mode.NONE, false, matrices, vertexConsumers, light, OverlayTexture.DEFAULT_UV, itemRenderer.getModels().getModelManager().getModel(model));
             matrices.pop();
         }
     }

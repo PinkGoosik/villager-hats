@@ -1,0 +1,9 @@
+{
+  "sources": [
+    {
+      "type": "directory",
+      "source": "entity/villager/profession",
+      "prefix": "entity/villager/profession/"
+    }
+  ]
+}

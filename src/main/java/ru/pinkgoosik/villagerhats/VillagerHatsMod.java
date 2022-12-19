@@ -1,12 +1,13 @@
 package ru.pinkgoosik.villagerhats;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.village.VillagerProfession;
 import ru.pinkgoosik.villagerhats.compat.TrinketsCompat;
 import ru.pinkgoosik.villagerhats.item.VillagerHat;
@@ -29,15 +30,15 @@ public class VillagerHatsMod implements ModInitializer {
     public static final Item LIBRARIAN_HAT = add(LIBRARIAN, 1.15F, 0D);
     public static final Item BUTCHER_HAT = add(BUTCHER, 1.15F, -0.125D);
 
-    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder
-            .create(new Identifier("villager-hats", "items"))
-            .appendItems(stacks -> ITEMS.forEach((id, item) -> stacks.add(item.getDefaultStack())))
+    public static final ItemGroup ITEM_GROUP = FabricItemGroup
+            .builder(new Identifier("villager-hats", "items"))
+            .entries((features, entries, operator) -> ITEMS.forEach((id, item) -> entries.add(item.getDefaultStack())))
             .icon(FARMER_HAT::getDefaultStack).build();
 
     @Override
     public void onInitialize() {
         for (Identifier id : ITEMS.keySet()) {
-            Registry.register(Registry.ITEM, id, ITEMS.get(id));
+            Registry.register(Registries.ITEM, id, ITEMS.get(id));
         }
     }
 
