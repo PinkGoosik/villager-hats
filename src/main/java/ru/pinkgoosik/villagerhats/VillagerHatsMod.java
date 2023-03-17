@@ -32,7 +32,7 @@ public class VillagerHatsMod implements ModInitializer {
 
     public static final ItemGroup ITEM_GROUP = FabricItemGroup
             .builder(new Identifier("villager-hats", "items"))
-            .entries((features, entries, operator) -> ITEMS.forEach((id, item) -> entries.add(item.getDefaultStack())))
+            .entries((ctx, entries) -> ITEMS.forEach((id, item) -> entries.add(item.getDefaultStack())))
             .icon(FARMER_HAT::getDefaultStack).build();
 
     @Override

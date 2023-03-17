@@ -3,16 +3,16 @@ package ru.pinkgoosik.villagerhats.item;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Equipment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Wearable;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.World;
 
-public class VillagerHatItem extends Item implements VillagerHat, Wearable {
+public class VillagerHatItem extends Item implements VillagerHat, Equipment {
     private final float size;
     private final double height;
     private final VillagerProfession profession;
@@ -68,4 +68,8 @@ public class VillagerHatItem extends Item implements VillagerHat, Wearable {
         return height;
     }
 
+    @Override
+    public EquipmentSlot getSlotType() {
+        return EquipmentSlot.HEAD;
+    }
 }
