@@ -23,7 +23,7 @@ public abstract class LivingEntityMixin {
 
     @Inject(method = "drop", at = @At("TAIL"))
     void drop(DamageSource source, CallbackInfo ci) {
-        if(self.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT) && self.getType().equals(EntityType.ZOMBIE_VILLAGER) && self instanceof VillagerDataContainer villagerDataContainer) {
+        if(self.getWorld().getGameRules().getBoolean(GameRules.DO_MOB_LOOT) && self.getType().equals(EntityType.ZOMBIE_VILLAGER) && self instanceof VillagerDataContainer villagerDataContainer) {
             VillagerProfession prof = villagerDataContainer.getVillagerData().getProfession();
 
             VillagerHatsMod.ITEMS.forEach((id, item) -> {

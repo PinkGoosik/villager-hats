@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.village.VillagerProfession;
 import ru.pinkgoosik.villagerhats.compat.TrinketsCompat;
@@ -30,8 +31,8 @@ public class VillagerHatsMod implements ModInitializer {
     public static final Item LIBRARIAN_HAT = add(LIBRARIAN, 1.15F, 0D);
     public static final Item BUTCHER_HAT = add(BUTCHER, 1.15F, -0.125D);
 
-    public static final ItemGroup ITEM_GROUP = FabricItemGroup
-            .builder(new Identifier("villager-hats", "items"))
+    public static final ItemGroup ITEM_GROUP = FabricItemGroup.builder()
+            .displayName(Text.translatable("itemGroup.villager-hats.items"))
             .entries((ctx, entries) -> ITEMS.forEach((id, item) -> entries.add(item.getDefaultStack())))
             .icon(FARMER_HAT::getDefaultStack).build();
 
@@ -40,6 +41,8 @@ public class VillagerHatsMod implements ModInitializer {
         for (Identifier id : ITEMS.keySet()) {
             Registry.register(Registries.ITEM, id, ITEMS.get(id));
         }
+
+        Registry.register(Registries.ITEM_GROUP, new Identifier("villager-hats", "items"), ITEM_GROUP);
     }
 
     private static Item add(VillagerProfession profession) {
