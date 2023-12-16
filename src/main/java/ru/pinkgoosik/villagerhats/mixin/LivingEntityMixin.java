@@ -9,6 +9,7 @@ import net.minecraft.village.VillagerDataContainer;
 import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.GameRules;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -19,11 +20,13 @@ import ru.pinkgoosik.villagerhats.item.VillagerHatItem;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
+    @Shadow protected abstract boolean shouldDropLoot();
+
     LivingEntity self = (LivingEntity)(Object)this;
 
     @Inject(method = "drop", at = @At("TAIL"))
     void drop(DamageSource source, CallbackInfo ci) {
-        if(self.getWorld().getGameRules().getBoolean(GameRules.DO_MOB_LOOT) && self.getType().equals(EntityType.ZOMBIE_VILLAGER) && self instanceof VillagerDataContainer villagerDataContainer) {
+        if(this.shouldDropLoot() && self.getWorld().getGameRules().getBoolean(GameRules.DO_MOB_LOOT) && self.getType().equals(EntityType.ZOMBIE_VILLAGER) && self instanceof VillagerDataContainer villagerDataContainer) {
             VillagerProfession prof = villagerDataContainer.getVillagerData().getProfession();
 
             VillagerHatsMod.ITEMS.forEach((id, item) -> {
