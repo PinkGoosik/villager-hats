@@ -1,6 +1,6 @@
 # Villager Hats
 
-<img align="right" width="160" src="src/main/resources/assets/villager-hats/icon.png">
+<img align="right" width="160" src="common/src/main/resources/assets/villagerhats/icon.png">
 
 [![CurseForge Downloads](https://cf.way2muchnoise.eu/full_501456_downloads.svg)](https://curseforge.com/minecraft/mc-mods/villager-hats-mod)
 [![Minecraft Versions](https://cf.way2muchnoise.eu/versions/501456.svg)](https://curseforge.com/minecraft/mc-mods/villager-hats-mod)

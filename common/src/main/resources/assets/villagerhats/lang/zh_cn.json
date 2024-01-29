@@ -1,0 +1,13 @@
+{
+  "modmenu.descriptionTranslation.villagerhats": "一个简单的模组，它可以帮助你把村民的帽子装备在饰品栏里",
+
+  "itemGroup.villagerhats.items": "村民的帽子",
+
+  "item.villagerhats.farmer_hat": "农民帽",
+  "item.villagerhats.fletcher_hat": "制箭师帽",
+  "item.villagerhats.fisherman_hat": "渔夫帽",
+  "item.villagerhats.armorer_hat": "盔甲匠帽",
+  "item.villagerhats.shepherd_hat": "牧羊人帽",
+  "item.villagerhats.librarian_hat": "图书管理员帽",
+  "item.villagerhats.butcher_hat": "屠夫帽"
+}

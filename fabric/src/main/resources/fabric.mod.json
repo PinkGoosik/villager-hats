@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "${id}",
+  "version": "${version}",
+
+  "name": "${name}",
+  "description": "${description}",
+  "authors": [
+    "PinkGoosik"
+  ],
+  "contact": {
+    "homepage": "${homepage_url}",
+    "sources": "${sources_url}",
+    "issues": "${issue_tracker_url}"
+  },
+  
+  "license": "${license}",
+  "icon": "assets/villagerhats/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [ "ru.pinkgoosik.villagerhats.fabric.VillagerHatsFabric" ],
+    "client": ["ru.pinkgoosik.villagerhats.fabric.client.VillagerHatsClient"]
+  },
+  "mixins": [
+    "${id}-common.mixins.json",
+    "${id}.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version_range_fabric}",
+    "java": ">=17"
+  }
+}

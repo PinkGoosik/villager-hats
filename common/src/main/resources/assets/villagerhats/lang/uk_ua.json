@@ -1,0 +1,13 @@
+{
+  "modmenu.descriptionTranslation.villagerhats": "Простий мод, який дозволяє носити капелюхи селян.",
+
+  "itemGroup.villagerhats.items": "Капелюхи селян",
+
+  "item.villagerhats.farmer_hat": "Капелюх фермера",
+  "item.villagerhats.fletcher_hat": "Капелюх лучника",
+  "item.villagerhats.fisherman_hat": "Капелюх рибака",
+  "item.villagerhats.armorer_hat": "Окуляри латника",
+  "item.villagerhats.shepherd_hat": "Капелюх пастуха",
+  "item.villagerhats.librarian_hat": "Капелюх бібліотекаря",
+  "item.villagerhats.butcher_hat": "Пов'язка м'ясника"
+}

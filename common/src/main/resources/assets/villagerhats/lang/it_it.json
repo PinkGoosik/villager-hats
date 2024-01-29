@@ -1,0 +1,13 @@
+{
+  "modmenu.descriptionTranslation.villagerhats": "Una semplice mod che ti consente di indossare i cappelli dei villici come ciondoli.",
+
+  "itemGroup.villagerhats.items": "Villager Hats",
+
+  "item.villagerhats.farmer_hat": "Cappello dell'agricoltore",
+  "item.villagerhats.fletcher_hat": "Cappello del fabbricatore di frecce",
+  "item.villagerhats.fisherman_hat": "Cappello del pescatore",
+  "item.villagerhats.armorer_hat": "Cappello del corazzaio",
+  "item.villagerhats.shepherd_hat": "Cappello del pastore",
+  "item.villagerhats.librarian_hat": "Cappello del bibliotecario",
+  "item.villagerhats.butcher_hat": "Cappello del macellaio"
+}
