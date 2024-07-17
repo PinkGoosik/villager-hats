@@ -1,0 +1,13 @@
+{
+    "modmenu.descriptionTranslation.villager-hats": "村人の帽子を装身具として着用できるようにするシンプルなMod。",
+  
+    "itemGroup.villager-hats.items": "Villager Hats",
+  
+    "item.villager-hats.farmer_hat": "農民の帽子",
+    "item.villager-hats.fletcher_hat": "矢師の帽子",
+    "item.villager-hats.fisherman_hat": "釣り人の帽子",
+    "item.villager-hats.armorer_hat": "防具鍛冶の帽子",
+    "item.villager-hats.shepherd_hat": "羊飼いの帽子",
+    "item.villager-hats.librarian_hat": "司書の帽子",
+    "item.villager-hats.butcher_hat": "肉屋の帽子"
+  }
