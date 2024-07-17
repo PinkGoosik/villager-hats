@@ -1,5 +1,7 @@
 package ru.pinkgoosik.villagerhats.mixin;
 
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -25,18 +27,19 @@ public abstract class LivingEntityMixin {
     LivingEntity self = (LivingEntity)(Object)this;
 
     @Inject(method = "dropAllDeathLoot", at = @At("TAIL"))
-    void drop(DamageSource damageSource, CallbackInfo ci) {
+    void drop(ServerLevel level, DamageSource damageSource, CallbackInfo ci) {
         if(this.shouldDropLoot() && self.level().getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT) && self.getType().equals(EntityType.ZOMBIE_VILLAGER) && self instanceof VillagerDataHolder villagerDataContainer) {
             VillagerProfession prof = villagerDataContainer.getVillagerData().getProfession();
 
-            VillagerHatsMod.ITEMS.forEach((id, item) -> {
+            VillagerHatsMod.ITEMS.forEach((id, sup) -> {
+				var item = BuiltInRegistries.ITEM.get(id);
                 if(((VillagerHat)item).getProfession().equals(prof)) self.spawnAtLocation(item.getDefaultInstance());
             });
         }
     }
 
     @Inject(method = "getEquipmentSlotForItem", at = @At("HEAD"), cancellable = true)
-    private static void getPreferredEquipmentSlot(ItemStack stack, CallbackInfoReturnable<EquipmentSlot> cir) {
+    private void getPreferredEquipmentSlot(ItemStack stack, CallbackInfoReturnable<EquipmentSlot> cir) {
         if(stack.getItem() instanceof VillagerHatItem) cir.setReturnValue(EquipmentSlot.HEAD);
     }
 

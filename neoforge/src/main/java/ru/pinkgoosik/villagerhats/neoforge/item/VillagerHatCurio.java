@@ -30,7 +30,7 @@ public class VillagerHatCurio extends Item implements VillagerHat, ICurioItem {
     @Override
     public void onEquip(SlotContext slotContext, ItemStack prevStack, ItemStack stack) {
         ICurioItem.super.onEquip(slotContext, prevStack, stack);
-        slotContext.entity().playSound(SoundEvents.ARMOR_EQUIP_LEATHER, 1.0F, 1.0F);
+        slotContext.entity().playSound(SoundEvents.ARMOR_EQUIP_LEATHER.value(), 1.0F, 1.0F);
     }
 
     @Override

@@ -1,48 +1,41 @@
-# Automatically build the project and run any configured tests for every push and submitted pull request.
-# This can help catch issues that only occur on certain platforms or Java versions, and provides a first line of defense against bad commits.
-
-name: Build Villager Hats
-on: [pull_request, push]
+name: build
+on: [ pull_request, push ]
 
 jobs:
   build:
     strategy:
       matrix:
-        # Use these Java versions
-        java: [
-          17,    # Current Java LTS & minimum supported by Minecraft
-        ]
-        # Run on these operating systems
-        os: [ubuntu-latest]
-    runs-on: ${{ matrix.os }}
+        java: [ 21 ]
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Validate Gradle Wrapper
-        uses: gradle/wrapper-validation-action@v1
+      - name: Validate gradle wrapper
+        uses: gradle/wrapper-validation-action@v2
       - name: Setup JDK ${{ matrix.java }}
         uses: actions/setup-java@v4
         with:
           java-version: ${{ matrix.java }}
-          distribution: 'zulu'
-          cache: gradle
-      - name: Make Gradle Wrapper Executable
-        if: ${{ runner.os != 'Windows' }}
+          distribution: 'microsoft'
+      - name: Make gradle wrapper executable
         run: chmod +x ./gradlew
       - name: Build
         run: ./gradlew build
+      - name: Merge Jars
+        run: ./gradlew mergeJars
       - uses: BrycensRanch/read-properties-action@v1
-        id: gradle_props
+        id: props
         with:
           file: gradle.properties
           all: true
       - name: Capture build artifacts
-        if: ${{ runner.os == 'Linux' && matrix.java == '17' }} # Only upload artifacts built from latest java on one OS
+        if: ${{ matrix.java == '21' }}
         uses: actions/upload-artifact@v4
         with:
           name: Artifacts
           path: |
-            fabric/build/libs/villager-hats-fabric-${{ steps.gradle_props.outputs.mod_version }}.jar
-            fabric/build/libs/villager-hats-fabric-${{ steps.gradle_props.outputs.mod_version }}-sources.jar
-            neoforge/build/libs/villager-hats-neoforge-${{ steps.gradle_props.outputs.mod_version }}.jar
-            neoforge/build/libs/villager-hats-neoforge-${{ steps.gradle_props.outputs.mod_version }}-sources.jar
+            build/libs/merged/${{ steps.props.outputs.mod_id }}-${{ steps.props.outputs.mod_version }}.jar
+            ${{ steps.props.outputs.mod_id }}-fabric/build/libs/${{ steps.props.outputs.mod_id }}-fabric-${{ steps.props.outputs.mod_version }}.jar
+            ${{ steps.props.outputs.mod_id }}-fabric/build/libs/${{ steps.props.outputs.mod_id }}-fabric-${{ steps.props.outputs.mod_version }}-sources.jar
+            ${{ steps.props.outputs.mod_id }}-neoforge/build/libs/${{ steps.props.outputs.mod_id }}-neoforge-${{ steps.props.outputs.mod_version }}.jar
+            ${{ steps.props.outputs.mod_id }}-neoforge/build/libs/${{ steps.props.outputs.mod_id }}-neoforge-${{ steps.props.outputs.mod_version }}-sources.jar

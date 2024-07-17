@@ -5,6 +5,7 @@ out/
 output/
 classes/
 libs/
+Merged/
 
 # Eclipse
 *.launch

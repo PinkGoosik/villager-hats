@@ -40,7 +40,7 @@ public class VillagerHatItem extends Item implements VillagerHat, Equipable {
                 stack.shrink(1);
             }
             else {
-                player.playSound(SoundEvents.ARMOR_EQUIP_LEATHER, 1.0F, 1.0F);
+                player.playSound(SoundEvents.ARMOR_EQUIP_LEATHER.value(), 1.0F, 1.0F);
             }
             return InteractionResultHolder.success(stack);
         }

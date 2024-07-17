@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
@@ -35,7 +36,7 @@ public class VillagerHatCurioRenderer implements ICurioRenderer {
                 matrices.mulPose(Axis.XP.rotationDegrees(180.0F));
                 matrices.mulPose(Axis.YP.rotationDegrees(180.0F));
 
-                var model = new ModelResourceLocation("villagerhats", hat.getHatName(), "inventory");
+                var model = new ModelResourceLocation(ResourceLocation.fromNamespaceAndPath("villagerhats", hat.getHatName()), "inventory");
                 itemRenderer.render(stack, ItemDisplayContext.NONE, false, matrices, vertexConsumers, light, OverlayTexture.NO_OVERLAY, itemRenderer.getItemModelShaper().getModelManager().getModel(model));
                 matrices.popPose();
             }

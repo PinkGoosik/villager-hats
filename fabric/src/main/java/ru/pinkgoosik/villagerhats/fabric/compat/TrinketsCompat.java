@@ -4,6 +4,7 @@ import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketComponent;
 import dev.emi.trinkets.api.TrinketsApi;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.Tuple;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.player.Player;
@@ -22,7 +23,7 @@ import java.util.Optional;
 public class TrinketsCompat {
 
     public static void onInitializeClient() {
-        VillagerHatsMod.ITEMS.forEach((id, item) -> TrinketRendererRegistry.registerRenderer(item, new VillagerHatTrinketRenderer()));
+        VillagerHatsMod.ITEMS.forEach((id, sup) -> TrinketRendererRegistry.registerRenderer(BuiltInRegistries.ITEM.get(id), new VillagerHatTrinketRenderer()));
     }
 
     public static boolean hasVillagerHat(Player player) {

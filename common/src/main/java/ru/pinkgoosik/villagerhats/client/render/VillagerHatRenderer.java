@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemDisplayContext;
@@ -40,7 +41,7 @@ public class VillagerHatRenderer<T extends Player, M extends PlayerModel<T>> ext
             matrices.mulPose(Axis.XP.rotationDegrees(180.0F));
             matrices.mulPose(Axis.YP.rotationDegrees(180.0F));
 
-            var model = new ModelResourceLocation("villagerhats", hat.getHatName(), "inventory");
+            var model = new ModelResourceLocation(ResourceLocation.fromNamespaceAndPath("villagerhats", hat.getHatName()), "inventory");
             itemRenderer.render(stack, ItemDisplayContext.NONE, false, matrices, vertexConsumers, light, OverlayTexture.NO_OVERLAY, itemRenderer.getItemModelShaper().getModelManager().getModel(model));
             matrices.popPose();
         }

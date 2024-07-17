@@ -5,11 +5,11 @@
       "item": "minecraft:leather_helmet"
     },
     {
-      "item": "minecraft:cod"
+      "item": "minecraft:feather"
     }
   ],
   "result": {
-    "item": "villagerhats:fisherman_hat",
+    "id": "villagerhats:fletcher_hat",
     "count": 1
   }
 }

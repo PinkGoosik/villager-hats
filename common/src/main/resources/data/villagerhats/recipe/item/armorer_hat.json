@@ -1,15 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "###"
+    "#i#"
   ],
   "key": {
     "#": {
       "item": "minecraft:leather"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
     }
   },
   "result": {
-    "item": "villagerhats:butcher_hat",
+    "id": "villagerhats:armorer_hat",
     "count": 1
   }
 }

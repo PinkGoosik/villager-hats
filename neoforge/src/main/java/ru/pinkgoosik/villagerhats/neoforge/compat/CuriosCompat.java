@@ -1,6 +1,7 @@
 package ru.pinkgoosik.villagerhats.neoforge.compat;
 
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -22,7 +23,7 @@ import java.util.Map;
 public class CuriosCompat {
 
     public static void onInitializeClient() {
-        VillagerHatsMod.ITEMS.forEach((id, item) -> CuriosRendererRegistry.register(item, VillagerHatCurioRenderer::new));
+        VillagerHatsMod.ITEMS.forEach((id, sup) -> CuriosRendererRegistry.register(BuiltInRegistries.ITEM.get(id), VillagerHatCurioRenderer::new));
     }
 
     public static boolean hasVisibleHat(Player player) {
