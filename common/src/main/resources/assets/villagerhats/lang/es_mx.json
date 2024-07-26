@@ -1,0 +1,13 @@
+{
+  "modmenu.descriptionTranslation.villager-hats": "Un simple Mod que te permite usar los sombreros de los aldeanos.",
+
+  "itemGroup.villager-hats.items": "Villager Hats",
+
+  "item.villager-hats.farmer_hat": "Sombrero de granjero",
+  "item.villager-hats.fletcher_hat": "Sombrero de flechero",
+  "item.villager-hats.fisherman_hat": "Sombrero de pescador",
+  "item.villager-hats.armorer_hat": "Sombrero de escudero",
+  "item.villager-hats.shepherd_hat": "Sombrero de pastor",
+  "item.villager-hats.librarian_hat": "Sombrero de librero",
+  "item.villager-hats.butcher_hat": "Sombrero de carnicero"
+}
